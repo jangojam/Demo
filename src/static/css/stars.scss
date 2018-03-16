@@ -1,0 +1,11 @@
+div {
+  position:relative;
+}
+div::after{
+  content:'★★★★★';
+  position:absolute;
+  top:0;
+  left:0;
+  width:3em;
+  overflow: hidden;
+}

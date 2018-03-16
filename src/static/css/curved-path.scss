@@ -1,0 +1,73 @@
+// 使用动画（硬件加速）
+.title{
+    margin-top: 100px;
+}
+
+.demo-dot {
+  -webkit-animation: xAxis 2.5s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
+  animation: xAxis 2.5s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
+}
+.demo-dot::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #000;
+  -webkit-animation: yAxis 2.5s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64);
+  animation: yAxis 2.5s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64);
+}
+@-webkit-keyframes yAxis {
+  50% {
+    -webkit-animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+}
+@keyframes yAxis {
+  50% {
+    -webkit-animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+}
+@-webkit-keyframes xAxis {
+  50% {
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+}
+@keyframes xAxis {
+  50% {
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+}
+// 使用绝对定位（性能差一些）
+// .demo-dot{
+//   width:50px; height:50px; border: 1px solid;
+//   position: absolute; left:100px; top:100px;
+//   animation-name: rightMove, bottomMove;
+//   animation-duration: 2.5s;
+//   animation-iteration-count: infinite;
+// }
+
+// @keyframes rightMove{
+//    50% {
+//     animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+//     left: 300px;
+//   }
+// }
+
+// @keyframes bottomMove{
+//   50% {
+//     animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+//     top: 300px;
+//   }
+// }
